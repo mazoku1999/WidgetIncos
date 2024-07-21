@@ -7,8 +7,8 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import com.example.widgetconalarm.models.AlarmHelper
+import com.example.widgetconalarm.models.AlarmItem
 import com.example.widgetconalarm.receivers.AlarmReceiver
-import kotlin.random.Random
 
 class AndroidAlarmScheduler(
     private val context: Context,
@@ -48,7 +48,7 @@ class AndroidAlarmScheduler(
         AlarmHelper().enqueue(
             context, item, PendingIntent.getBroadcast(
                 context,
-                item.hashCode() + Random.nextInt(1,1000),
+                item.hashCode(),
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )

@@ -1,8 +1,7 @@
-package com.example.widgetconalarm
+package com.example.widgetconalarm.models
 
 import java.io.Serializable
 import java.time.DayOfWeek
-import java.time.LocalDateTime
 
 data class AlarmItem (
     val message: String,

@@ -1,6 +1,10 @@
 package com.example.widgetconalarm
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -13,23 +17,25 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.glance.appwidget.updateAll
+import com.example.widgetconalarm.models.AlarmItem
 import com.example.widgetconalarm.models.AlarmItemList
 import com.example.widgetconalarm.receivers.AlarmReceiver
-import kotlinx.coroutines.runBlocking
 import java.time.DayOfWeek
 import java.time.LocalDateTime
 
+
 class MainActivity : ComponentActivity() {
-    @SuppressLint("NewApi")
+    @SuppressLint("NewApi", "UnspecifiedImmutableFlag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val scheduler = AndroidAlarmScheduler(this)
         var alarmItem: AlarmItem? = null
         var alarmReceiver: AlarmReceiver? = null
         val hora = LocalDateTime.now()
+
 //        runBlocking { HoraWidget().updateAll(this@MainActivity) }
         setContent {
+
             MaterialTheme {
                 var dayOfWeekText by remember { mutableStateOf("") }
                 var hourText by remember { mutableStateOf("${hora.hour}") }
@@ -98,8 +104,16 @@ class MainActivity : ComponentActivity() {
                             Text(text = "Schedule")
                         }
                         Button(onClick = {
+
+                            val intent = Intent(this@MainActivity, AlarmReceiver::class.java)
+                            val alarmExists = checkAlarmExists(this@MainActivity, 0, intent)
+                            if (alarmExists) {
+                                Log.d("existe", "Si existe")
+                            } else {
+                                Log.d("existe", "No existe")
+                            }
 //                            alarmItem?.let(scheduler::cancel)
-                            Log.d("p2", "Se cancelo")
+//                            Log.d("p2", "Se cancelo")
                         }) {
                             Text(text = "Cancel")
                         }
@@ -109,3 +123,11 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@SuppressLint("UnspecifiedImmutableFlag")
+fun checkAlarmExists(context: Context, requestCode: Int, intent: Intent): Boolean {
+    val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+    val pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, PendingIntent.FLAG_NO_CREATE)
+    return pendingIntent != null
+}
+

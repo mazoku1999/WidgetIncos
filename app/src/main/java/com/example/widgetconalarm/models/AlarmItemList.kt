@@ -1,9 +1,7 @@
 package com.example.widgetconalarm.models
 
 import android.annotation.SuppressLint
-import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import com.example.widgetconalarm.AlarmItem
 import com.example.widgetconalarm.data.WidgetHorariosData
 import java.time.DayOfWeek
 

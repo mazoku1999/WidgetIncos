@@ -40,6 +40,16 @@ class WidgetHorariosData {
             Horario("18:30", "19:40", "DISEÑO Y PROGRAMACION WEB II", "LAB-2-2DO PISO", "CACERES PAVEL", Color(0xFFf8f8f8), WidgetType.WidgetFor6to7PM),
             Horario("19:40", "20:50", "PROGRAMACION III", "LAB-4-MOVIL", "FRONTANILLA RODRIGO", Color(0xFFe5e5e5), WidgetType.WidgetFor8to9PM),
             Horario("21:00", "22:10", "REDES DE COMPUTADORAS II", "AULA 2 - 4", "VASQUEZ MARCELO", Color(0xFFcecece), WidgetType.WidgetFor10to11PM)
+        ),
+        "Sabado" to listOf(
+            Horario("18:30", "19:40", Color(0xFFf8f8f8)),
+            Horario("19:40", "20:50", Color(0xFFe5e5e5)),
+            Horario("21:00", "22:10", Color(0xFFcecece))
+        ),
+        "Domingo" to listOf(
+            Horario("18:30", "19:40", Color(0xFFf8f8f8)),
+            Horario("19:40", "20:50", Color(0xFFe5e5e5)),
+            Horario("21:00", "22:10", Color(0xFFcecece))
         )
     )
 
@@ -54,6 +64,8 @@ class WidgetHorariosData {
             DayOfWeek.WEDNESDAY -> "Miércoles"
             DayOfWeek.THURSDAY -> "Jueves"
             DayOfWeek.FRIDAY -> "Viernes"
+            DayOfWeek.SATURDAY -> "Sabado"
+            DayOfWeek.SUNDAY -> "Domingo"
             else -> null
         }
         horarioDia = horarios[dayString] ?: emptyList()
