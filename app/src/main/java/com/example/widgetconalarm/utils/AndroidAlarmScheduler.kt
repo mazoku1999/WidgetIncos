@@ -1,4 +1,4 @@
-package com.example.widgetconalarm
+package com.example.widgetconalarm.utils
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
@@ -8,6 +8,7 @@ import android.content.Intent
 import android.util.Log
 import com.example.widgetconalarm.models.AlarmHelper
 import com.example.widgetconalarm.models.AlarmItem
+import com.example.widgetconalarm.models.AlarmScheduler
 import com.example.widgetconalarm.receivers.AlarmReceiver
 
 class AndroidAlarmScheduler(

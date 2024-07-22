@@ -9,16 +9,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.glance.Button
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
+import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.components.Scaffold
 import androidx.glance.appwidget.lazy.LazyColumn
 import androidx.glance.appwidget.lazy.items
 import androidx.glance.appwidget.provideContent
+import androidx.glance.background
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.Column
@@ -28,6 +32,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.widgetconalarm.data.WidgetHorariosData
 import com.example.widgetconalarm.models.AlarmItemList
 import com.example.widgetconalarm.models.Horario
+import com.example.widgetconalarm.widget.ui.AndreaDiaWidget
+import com.example.widgetconalarm.widget.ui.EventsContent
 
 import dagger.hilt.EntryPoint
 import dagger.hilt.EntryPoints
@@ -35,8 +41,10 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import java.time.LocalDateTime
 import java.time.LocalTime
+import kotlin.random.Random
 
 private val widgetDataHolder = WidgetHorariosData()
+
 class HoraWidget : GlanceAppWidget() {
 
 
@@ -65,9 +73,13 @@ class HoraWidget : GlanceAppWidget() {
 //                        }
 //                    }
 //                }
-                TimeBasedWidget()
+//                TimeBasedWidget()
 //                HoraEnum()
+//                MateriasDia()
+//                EventsContent(widgetDataHolder.horarioDia)
+                AndreaDiaWidget()
             }
+
         }
     }
 }
@@ -78,7 +90,7 @@ fun HoraEnum() {
     val context = LocalContext.current
 //    Toast.makeText(context, "Holaaa", Toast.LENGTH_SHORT).show()
 //    var diaViewMode = remember { DayViewModel() }
-    Log.d("gol","Entro al widget")
+    Log.d("gol", "Entro al widget")
     var horaType by remember { mutableStateOf(HoraType.NOCHE) }
     var randomHoraType by remember { mutableStateOf(HoraType.entries.toTypedArray().random()) }
     println(randomHoraType)
@@ -116,7 +128,7 @@ enum class HoraType {
 fun TimeBasedWidget() {
     val currentTime by remember { mutableStateOf(LocalDateTime.now()) }
     val widgetType by remember { mutableStateOf(getWidgetTypeForTime(currentTime).first) }
-    Log.d("gol","Entro al widget")
+    Log.d("gol", "Entro al widget")
 
     Scaffold {
         Box(
@@ -160,16 +172,6 @@ fun getWidgetTypeForTime(time: LocalDateTime): Pair<WidgetType, Horario?> {
             estaDentroDelIntervalo(it.entrada, it.salida)
         }
 
-//        if (estaDentroDelIntervalo("01:00", "18:15") || estaDentroDelIntervalo("22:10", "23:59")) {
-//            tipo = WidgetType.DefaultWidget
-//        } else {
-//            if (horario != null) {
-//                tipo = horario.tipo
-//                materia = horario
-//            } else {
-//                tipo = WidgetType.WidgetRecreo
-//            }
-//        }
         if (estaDentroDelIntervalo("18:30", "22:10")) {
             if (horario != null) {
                 tipo = horario.tipo
@@ -227,6 +229,28 @@ fun DefaultWidget() {
     Text(text = "Fuera de Horario")
 }
 
+@Composable
+fun MateriasDia() {
+    val horario = widgetDataHolder.horarioDia
+    LazyColumn {
+        items(horario) { materia ->
+            Column(
+                modifier = GlanceModifier.fillMaxSize()
+                    .background(
+                        color = Color(
+                            Random.nextLong(0xffffffff)
+                        ),
+                    ),
+
+                ) {
+                Text(text = materia.profesor)
+                Text(text = materia.aula)
+                Text(text = materia.entrada + " - " + materia.salida)
+            }
+        }
+    }
+}
+
 @SuppressLint("NewApi")
 fun estaDentroDelIntervalo(inicio: String, fin: String): Boolean {
     val ahora = LocalTime.now()
@@ -234,5 +258,3 @@ fun estaDentroDelIntervalo(inicio: String, fin: String): Boolean {
     val horaFin = LocalTime.parse(fin)
     return ahora.isAfter(horaInicio) && ahora.isBefore(horaFin)
 }
-
-

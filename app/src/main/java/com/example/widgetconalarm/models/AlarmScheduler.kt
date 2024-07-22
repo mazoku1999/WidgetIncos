@@ -1,6 +1,4 @@
-package com.example.widgetconalarm
-
-import com.example.widgetconalarm.models.AlarmItem
+package com.example.widgetconalarm.models
 
 interface AlarmScheduler {
     fun schedule(item: AlarmItem)
