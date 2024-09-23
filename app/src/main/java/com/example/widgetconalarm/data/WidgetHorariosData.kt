@@ -38,7 +38,7 @@ class WidgetHorariosData {
         ),
         "Viernes" to listOf(
             Horario("18:30", "19:40", "DISEÑO Y PROGRAMACION WEB II", "LAB-2-2DO PISO", "CACERES PAVEL", Color(0xFFf8f8f8), WidgetType.WidgetFor6to7PM),
-            Horario("19:40", "20:50", "PROGRAMACION III", "LAB-4-MOVIL", "FRONTANILLA RODRIGO", Color(0xFFe5e5e5), WidgetType.WidgetFor8to9PM),
+            Horario("19:40", "20:50", "PROGRAMACION III", "LAB-3-MOVIL", "FRONTANILLA RODRIGO", Color(0xFFe5e5e5), WidgetType.WidgetFor8to9PM),
             Horario("21:00", "22:10", "REDES DE COMPUTADORAS II", "AULA 2 - 4", "VASQUEZ MARCELO", Color(0xFFcecece), WidgetType.WidgetFor10to11PM)
         ),
         "Sabado" to listOf(

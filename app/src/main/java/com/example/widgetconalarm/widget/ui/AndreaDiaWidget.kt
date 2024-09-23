@@ -24,6 +24,8 @@ import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
+import androidx.glance.text.Text
+import androidx.glance.text.TextStyle
 import com.example.widgetconalarm.R
 import com.example.widgetconalarm.utils.GlanceText
 import com.example.widgetconalarm.utils.GlanceText2
@@ -92,26 +94,27 @@ fun AndreaDiaWidget() {
                         verticalAlignment = Alignment.CenterVertically
                         //fin
                     ) {
-                        Column(horizontalAlignment = Alignment.End) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             GlanceText(
                                 text = "AULA",
                                 font = R.font.lexenddeca_regular,
                                 fontSize = 11.sp,
-                                letterSpacing = 0.3.sp,
-                                color = Color(color = 0xFF3E2723)
+                                color = Color(color = 0xFF573B35),
+                                letterSpacing = 0.2.sp
                             )
                             GlanceText(
-                                text = "2A",
+                                text = "2-A",
                                 font = R.font.lexenddeca_extrabold,
-                                fontSize = 20.sp,
-                                color = Color(color = 0xFF3E2723)
+                                fontSize = 17.sp,
+                                color = Color(color = 0xFF573B35),
+                                letterSpacing = 0.sp
                             )
                             GlanceText(
-                                text = "Flores Edson",
+                                text = "FLORES EDSON",
                                 font = R.font.lexenddeca_bold,
-                                fontSize = 12.sp,
-                                color = Color.Red,
-                                letterSpacing = 0.sp,
+                                fontSize = 11.sp,
+                                color = Color(color = 0xFF573B35),
+                                letterSpacing = 0.sp
                             )
                         }
                         Box(
@@ -120,7 +123,7 @@ fun AndreaDiaWidget() {
                         ) {
                             Image(
                                 provider = ImageProvider(
-                                    resId = R.drawable.img,
+                                    resId = R.drawable.rhk,
                                 ),
                                 contentDescription = "gaa",
 
@@ -131,19 +134,23 @@ fun AndreaDiaWidget() {
                                 text = "FECHA",
                                 font = R.font.lexenddeca_regular,
                                 fontSize = 11.sp,
-                                letterSpacing = 0.3.sp
+                                color = Color(color = 0xFF573B35),
+                                letterSpacing = 0.2.sp
                             )
                             GlanceText(
                                 text = nombreDia,
-                                font = R.font.lexenddeca_bold,
+                                font = R.font.lexenddeca_extrabold,
                                 fontSize = 17.sp,
+                                color = Color(color = 0xFF573B35),
+                                letterSpacing = 0.sp
                             )
                             GlanceText(
                                 text = nombreMes,
                                 font = R.font.lexenddeca_regular,
                                 fontSize = 12.sp,
-
-                                )
+                                color = Color(color = 0xFF573B35),
+                                letterSpacing = 0.sp
+                            )
                         }
                     }
                 }

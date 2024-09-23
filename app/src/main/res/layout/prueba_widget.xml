@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red_700"
+    android:paddingTop="5dp"
+    android:paddingStart="20dp"
+    android:paddingBottom="20dp"
+    android:paddingEnd="20dp"
+    >
+
+    <ImageView
+        android:id="@+id/img_hello_kitty"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-6dp"
+        android:src="@drawable/img" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/shapw">
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_course_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_hello_kitty"
+        android:layout_centerHorizontal="true"
+        android:text="DISEÑO Y PROGRAMACION WEB II"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tv_aula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_course_title"
+        android:layout_centerHorizontal="true"
+        android:text="AULA"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tv_aula_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_aula"
+        android:layout_centerHorizontal="true"
+        android:text="2-A"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tv_professor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_aula_detail"
+        android:layout_centerHorizontal="true"
+        android:text="FLORES EDSON"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tv_date_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_professor"
+        android:layout_centerHorizontal="true"
+        android:text="FECHA"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date_title"
+        android:layout_centerHorizontal="true"
+        android:text="LUNES\n22 de Julio"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_marginTop="4dp" />
+
+</RelativeLayout>
