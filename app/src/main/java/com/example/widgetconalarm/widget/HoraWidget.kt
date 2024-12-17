@@ -1,5 +1,6 @@
 package com.example.widgetconalarm
 
+import ModernEventsWidget
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
@@ -76,8 +77,9 @@ class HoraWidget : GlanceAppWidget() {
 //                TimeBasedWidget()
 //                HoraEnum()
 //                MateriasDia()
-//                EventsContent(widgetDataHolder.horarioDia)
-                AndreaDiaWidget()
+                EventsContent(widgetDataHolder.horarioDia)
+//                ModernEventsWidget(widgetDataHolder.horarioDia)
+//                AndreaDiaWidget()
             }
 
         }

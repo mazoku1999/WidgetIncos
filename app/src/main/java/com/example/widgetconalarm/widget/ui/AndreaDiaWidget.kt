@@ -1,6 +1,5 @@
 package com.example.widgetconalarm.widget.ui
 
-
 import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.runtime.Composable
@@ -29,6 +28,7 @@ import androidx.glance.text.TextStyle
 import com.example.widgetconalarm.R
 import com.example.widgetconalarm.utils.GlanceText
 import com.example.widgetconalarm.utils.GlanceText2
+
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -83,7 +83,8 @@ fun AndreaDiaWidget() {
                     GlanceText2(
                         text = "DISEÑO Y PROGRAMACION WEB II",
                         font = R.font.gill_sans,
-                        fontSize = 15.sp
+                        fontSize = 15.sp,
+
                     )
                 }
                 Column(

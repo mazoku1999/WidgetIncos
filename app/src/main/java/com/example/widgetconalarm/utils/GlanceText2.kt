@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.text.TextPaint
 import android.util.TypedValue
+import android.widget.Toast
 import androidx.annotation.FontRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -18,7 +19,6 @@ import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 
-
 @Composable
 fun GlanceText2(
     text: String,
@@ -28,6 +28,7 @@ fun GlanceText2(
     color: Color = Color.Black,
     letterSpacing: TextUnit = 0.1.sp
 ) {
+
     Image(
         modifier = modifier,
         provider = ImageProvider(
